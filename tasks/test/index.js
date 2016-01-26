@@ -6,18 +6,6 @@
 module.exports = {
 
     /**
-     * Browser sync
-     * @see module:tasks/test/browser-sync
-     */
-    browserSync: require('./browser-sync'),
-
-    /**
-     * Run Karma once
-     * @see module:tasks/test/karma-run-once
-     */
-    karmaRunOnce: require('./karma-run-once'),
-
-    /**
      * Run end to end tests
      * @see module:tasks/test/run-e2e-tests
      */
