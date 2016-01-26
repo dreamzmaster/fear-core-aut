@@ -1,0 +1,59 @@
+{
+  "name": "fear-core-aut",
+  "version": "1.1.4",
+  "description": "FEAR core API driven application under test tasks",
+  "main": "index.js",
+  "scripts": {
+    "postinstall" : "node postinstall",
+    "eslint": "eslint test/ tasks/",
+    "test": "mocha 'test/**/*.spec.js'",
+    "pretest": "npm run eslint",
+    "watch:test": "onchange test/**/*.js tasks/**/*.js -- npm run test -s",
+    "dev": "npm run watch:test -s",
+    "docs": "./node_modules/.bin/jsdoc ./tasks index.js --recurse --destination docs --readme README.md",
+    "prepublish" : "npm test",
+    "postpublish": "git checkout gh-pages; git merge master --strategy-option theirs; npm run docs; git add .; git commit -m 'update jsdocs'; git push upstream gh-pages; git checkout master"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DigitalInnovation/fear-core-aut.git"
+  },
+  "author": {
+    "name": "Marton Hipszki",
+    "email": "marton.hipszki@mnscorp.net"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DigitalInnovation/fear-core-aut/issues"
+  },
+  "homepage": "http://digitalinnovation.github.io/fear-core-aut",
+  "dependencies": {
+    "bluebird": "2.10.2",
+    "chalk": "1.1.1",
+    "del": "1.2.0",
+    "eslint": "1.2.1",
+    "eslint-config-fear-core": "git+https://github.com/digitalinnovation/fear-core-eslint-config",
+    "extend": "2.0.1",
+    "fs-extra": "0.24.0",
+    "gulp-sitespeedio": "0.0.6",
+    "gulp-webdriver": "1.0.1",
+    "jsfy": "1.5.0",
+    "lazypipe": "0.2.4",
+    "lodash": "3.10.1",
+    "minimist": "1.2.0",
+    "phantomjs": "1.9.18",
+    "run-sequence": "1.1.4",
+    "selenium-standalone": "4.7.1",
+    "sprity": "1.0.7",
+    "sprity-sass": "1.0.4",
+    "w3cjs": "0.3.0",
+    "webdrivercss": "2.0.0beta-rc1",
+    "webdriverio": "3.2.5",
+    "webpage": "0.3.0",
+    "yargs": "3.30.0"
+  },
+  "devDependencies": {
+    "jsdoc": "3.4.0",
+    "onchange": "2.0.0"
+  }
+}
